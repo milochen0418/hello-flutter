@@ -35,7 +35,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -54,9 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: const Icon(Icons.account_circle),
               title: new Text("Item $index")
             );
-          }
-        )
-      ),
+          })),
 
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
