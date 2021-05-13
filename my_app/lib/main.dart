@@ -39,7 +39,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: (new ListView.builder(
+      body: (
+        new ListView.builder(
           itemCount: _counter,
           itemBuilder: (context, index) {
             int num = _counter - 1;
@@ -53,7 +54,9 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: const Icon(Icons.account_circle),
               title: new Text("Item $index")
             );
-          })),
+          }
+        )
+      ),
 
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
