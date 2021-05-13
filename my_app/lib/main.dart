@@ -83,11 +83,12 @@ class SecondPage extends StatelessWidget {
         title: Text('Second Screen')
       ),
       body: Center(
-        child: RaisedButton(
+        child: RaisedButton.icon(
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Text('Go Back!'),
+          label: Text('Go Back!'),
+          icon: Icon(FontAwesomeIcons.stepBackward)
         )
       )
     );
