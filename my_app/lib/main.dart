@@ -17,7 +17,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: MyHomePage(title: 'My App Home Page'),
+      home: MyHomePage(
+        title: 'My App Home Page',
+        storage: CounterStorage(),
+      ),
     );
   }
 }
@@ -57,19 +60,30 @@ class CounterStorage {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key key, this.title, @required this.storage}) : super(key: key);
   final String title;
+  final CounterStorage storage;
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _counter;
+  @override
+  void initState() {
+    super.initState();
+    widget.storage.readCounter().then((int value) {
+      setState(() {
+        _counter = value;
+      });
+    });
+  }
 
-  void _incrementCounter() {
+  Future<File> _incrementCounter() async {
     setState(() {
       _counter++;
     });
+    return widget.storage.writeCounter(_counter);
   }
 
   @override
