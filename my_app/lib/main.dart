@@ -78,7 +78,8 @@ class _MyHomePageState extends State<MyHomePage> {
           itemBuilder: (context, index) {
             int num = _counter - 1;
             if (index == 0) {
-              return Text("There are " + "$num" + " Item");
+              return Text("There are " + "$num" + " Item",
+                  style: Theme.of(context).textTheme.headline4);
             }
             return ListTile(
                 leading: const Icon(Icons.account_circle),
