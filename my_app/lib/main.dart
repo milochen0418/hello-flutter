@@ -52,7 +52,13 @@ class _MyHomePageState extends State<MyHomePage> {
             }
             return ListTile(
               leading: const Icon(Icons.account_circle),
-              title: new Text("Item $index")
+              title: new Text("Item $index"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SecondPage()),
+                );
+              }
             );
           }
         )
@@ -63,6 +69,26 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+
+class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Second Screen')
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Go Back!'),
+        )
+      )
     );
   }
 }
