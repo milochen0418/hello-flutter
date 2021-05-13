@@ -93,12 +93,13 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              "Hey, I'm new one here",
-            ),
-            Text(
-              'Many people have pushed the button this many times:',
-            ),
+            ListTile(
+                leading: const Icon(Icons.phone_android),
+                title: const Text("Android")),
+            ListTile(
+                leading: const Icon(Icons.phone_iphone),
+                title: const Text("iOS")),
+            ListTile(leading: const Icon(Icons.web), title: const Text("Web")),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
